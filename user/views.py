@@ -169,7 +169,7 @@ class TableauDataView(APIView):
         client_name = user_data["client_name"]
         tab_data = Tableau_Data()
         data = tab_data.get_tableau_sql_data(client_name)
-        print('DATA: ', data)
+        chart_data = tab_data.get_chart_data(client_name)
         # client = Data()
         # data = client.get_data(client_name)
         # data_id_list = data[0]
@@ -194,4 +194,4 @@ class TableauDataView(APIView):
         #     chart_data_results.append(json.loads(fetch_data(chart_id)))
 
         # Return JSON response with ortho_one_data, combined data_id_list, and chart data
-        return Response({'client_data': data, 'chart_data_results': ''}, status=status.HTTP_200_OK)
+        return Response({'client_data': data, 'chart_data_results': chart_data}, status=status.HTTP_200_OK)

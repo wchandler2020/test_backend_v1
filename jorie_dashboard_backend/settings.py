@@ -117,14 +117,25 @@ WSGI_APPLICATION = "jorie_dashboard_backend.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': "django.db.backends.mysql",
+#         'NAME': os.environ.get("DB_NAME","jorie_users_db"),
+#         'USER': os.environ.get("DB_USER","root"),
+#         'PASSWORD': os.environ.get("DB_PASSWORD","ch3ch2oh"),
+#         'HOST': os.environ.get("DB_HOST", "172.202.25.101"),   # Or an IP Address that your DB is hosted on
+#         'PORT': os.environ.get("DB_PORT","3306"),
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': "django.db.backends.mysql",
-        'NAME': os.environ.get("DB_NAME","jorie_users_db"),
-        'USER': os.environ.get("DB_USER","root"),
-        'PASSWORD': os.environ.get("DB_PASSWORD","ch3ch2oh"),
-        'HOST': os.environ.get("DB_HOST", "172.202.25.101"),   # Or an IP Address that your DB is hosted on
-        'PORT': os.environ.get("DB_PORT","3306"),
+        'NAME': 'jorie_tableau_data',  
+        'USER': 'root',  
+        'PASSWORD': 'devine11',  
+        'HOST': 'localhost',  
+        'PORT': '3306',  
     }
 }
 

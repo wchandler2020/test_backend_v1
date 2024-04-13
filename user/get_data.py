@@ -20,93 +20,97 @@ class Tableau_Data:
     print("Connected to MySQL database!")
 
     
-    def client_stats_data(client_name):
+    def client_stats_data(self, client_name):
         if(client_name == "Eyecare Of Atlanta"):
             eca_url_names_list = [
-            'NCR-VarianceNew', 'NCR-CurrentNew', 'NCR-ComparisonNew', 'NetRevenue-VarianceNew', 'NetRevenue-CurrentNew',
-            'NetRevenue-ComparisonNew',
-            'CCR-VarianceNew', 'CCR-CurrentNew', 'CCR-ComparisonNew', 'Charges-VarianceNew', 'Charges-CurrentNew',
-            'Charges-ComparisonNew', 'TotalAR-VarianceNew',
-            'TotalAR-CurrentNew', 'TotalAR-ComparisonNew', 'ARDays-VarianceNew', 'ARDays-CurrentNew',
-            'ARDays-ComparisonNew', 'FEDR-VarianceNew', 'FEDR-CurrentNew',
-            'FEDR-ComparisonNew', 'FEDenialsAmts-VarianceNew', 'FEDenialsAmts-CurrentNew',
-            'FEDenialsAmts-ComparisonNew', 'Eligibility-VarianceNew', 'EVChecks-CurrentNew',
-            'EVChecks-ComparisonNew'
+                'NCR-VarianceNew', 'NCR-CurrentNew', 'NCR-ComparisonNew', 'NetRevenue-VarianceNew', 'NetRevenue-CurrentNew',
+                'NetRevenue-ComparisonNew',
+                'CCR-VarianceNew', 'CCR-CurrentNew', 'CCR-ComparisonNew', 'Charges-VarianceNew', 'Charges-CurrentNew',
+                'Charges-ComparisonNew', 'TotalAR-VarianceNew',
+                'TotalAR-CurrentNew', 'TotalAR-ComparisonNew', 'ARDays-VarianceNew', 'ARDays-CurrentNew',
+                'ARDays-ComparisonNew', 'FEDR-VarianceNew', 'FEDR-CurrentNew',
+                'FEDR-ComparisonNew', 'FEDenialsAmts-VarianceNew', 'FEDenialsAmts-CurrentNew',
+                'FEDenialsAmts-ComparisonNew', 'Eligibility-VarianceNew', 'EVChecks-CurrentNew',
+                'EVChecks-ComparisonNew'
             ]
             
-            return [eca_url_names_list, 'eca_tableau_data']
+            eca_chart_url_names = [
+                'ARBuckets-121Version',  'ARBuckets-Variance121Version', 'PayerMixTable', 'ClaimVolumeTrending', 'ClaimResultTrends'
+            ]
+            
+            return [eca_url_names_list, 'eca_tableau_data', eca_chart_url_names]
     
         elif(client_name == "Manchester"):
-            manchester_tableau_data = [
-            'NCR-VarianceNew',
-            'NCR-CurrentNew',
-            'NCR-ComparisonNew',
-            'NetRevenue-VarianceNew',
-            'NetRevenue-CurrentNew',
-            'NetRevenue-ComparisonNew',
-            'CCR-VarianceNew',
-            'CCR-CurrentNew',
-            'CCR-ComparisonNew',
-            'Charges-VarianceNew',
-            'Charges-CurrentNew',
-            'Charges-ComparisonNew',
-            'TotalAR-VarianceNew',
-            'TotalAR-CurrentNew',
-            'TotalAR-ComparisonNew',
-            'ARDays-VarianceNew',
-            'ARDays-CurrentNew',
-            'ARDays-ComparisonNew',
-            'FEDR-VarianceNew',
-            'FEDR-CurrentNew',
-            'FEDR-ComparisonNew',
-            'FEDenialsAmts-VarianceNew',
-            'FEDenialsAmts-CurrentNew',
-            'FEDenialsAmts-ComparisonNew',
-            'Eligibility-VarianceNew',
-            'EVChecks-CurrentNew',
-            'EVChecks-ComparisonNew',
+            manchester_url_name_list = [
+                'NCR-VarianceNew',
+                'NCR-CurrentNew',
+                'NCR-ComparisonNew',
+                'NetRevenue-VarianceNew',
+                'NetRevenue-CurrentNew',
+                'NetRevenue-ComparisonNew',
+                'CCR-VarianceNew',
+                'CCR-CurrentNew',
+                'CCR-ComparisonNew',
+                'Charges-VarianceNew',
+                'Charges-CurrentNew',
+                'Charges-ComparisonNew',
+                'TotalAR-VarianceNew',
+                'TotalAR-CurrentNew',
+                'TotalAR-ComparisonNew',
+                'ARDays-VarianceNew',
+                'ARDays-CurrentNew',
+                'ARDays-ComparisonNew',
+                'FEDR-VarianceNew',
+                'FEDR-CurrentNew',
+                'FEDR-ComparisonNew',
+                'FEDenialsAmts-VarianceNew',
+                'FEDenialsAmts-CurrentNew',
+                'FEDenialsAmts-ComparisonNew',
+                'Eligibility-VarianceNew',
+                'EVChecks-CurrentNew',
+                'EVChecks-ComparisonNew',
             ]
 
-            return [manchester_tableau_data, 'manchester_tableau_data']
+            return [manchester_url_name_list, 'manchester_tableau_data']
         
         elif(client_name == 'Ortho Northeast'):
-            one_tableau_data = [
-            'NetRevenueProjectedVariance',
-            'NetRevenue2023',
-            'NetRevenue2022YTD',
-            'NetRevenue-VarianceNew',
-            'NetRevenue-CurrentNew',
-            'NetRevenue-ComparisonNew',
-            'CCR-VarianceNew',
-            'CCR-CurrentNew',
-            'CCR-ComparisonNew',
-            'TotalAR-VarianceNew',
-            'TotalAR-CurrentNew',
-            'TotalAR-ComparisonNew',
-            'ARDays-VarianceNew',
-            'ARDays-CurrentNew',
-            'ARDays-ComparisonNew',
-            'Charges-VarianceNew',
-            'Charges-CurrentNew',
-            'Charges-ComparisonNew',
-            'FEDR-VarianceNew',
-            'FEDR-CurrentNew',
-            'FEDR-ComparisonNew',
-            'Pre-AuthChecks-VarianceNew',
-            'PAChecks-CurrentNew',
-            'PAChecks-ComparisonNew',
-            'ClaimVolume-VarianceNew',
-            'ClaimVolume-CurrentNew',
-            'ClaimVolume-ComparisonNew',
-        ]
+            one_tableau_name_list = [
+                'NetRevenueProjectedVariance',
+                'NetRevenue2023',
+                'NetRevenue2022YTD',
+                'NetRevenue-VarianceNew',
+                'NetRevenue-CurrentNew',
+                'NetRevenue-ComparisonNew',
+                'CCR-VarianceNew',
+                'CCR-CurrentNew',
+                'CCR-ComparisonNew',
+                'TotalAR-VarianceNew',
+                'TotalAR-CurrentNew',
+                'TotalAR-ComparisonNew',
+                'ARDays-VarianceNew',
+                'ARDays-CurrentNew',
+                'ARDays-ComparisonNew',
+                'Charges-VarianceNew',
+                'Charges-CurrentNew',
+                'Charges-ComparisonNew',
+                'FEDR-VarianceNew',
+                'FEDR-CurrentNew',
+                'FEDR-ComparisonNew',
+                'Pre-AuthChecks-VarianceNew',
+                'PAChecks-CurrentNew',
+                'PAChecks-ComparisonNew',
+                'ClaimVolume-VarianceNew',
+                'ClaimVolume-CurrentNew',
+                'ClaimVolume-ComparisonNew',
+            ]
 
-        return [one_tableau_data, 'one_tableau_data']
+        return [one_tableau_name_list, 'one_tableau_data']
 
     def get_tableau_sql_data(self, client_name):
         cleaned_data_list = []
         data_list = []
-        view_url_names_list = self.client_stats_data[0]
-        table_name = self.client_stats_data[1]
+        view_url_names_list = self.client_stats_data(client_name)[0]
+        table_name = self.client_stats_data(client_name)[1]
         cleaned_data_list = []  # Initialize cleaned_data_list here
 
         for url_name in view_url_names_list:
@@ -127,7 +131,7 @@ class Tableau_Data:
 
             # Construct the final SQL query
             query = f"""SELECT {', '.join(select_columns)}
-                        FROM eca_tableau_data
+                        FROM {table_name}
                         WHERE view_name = '{url_name}'"""
 
             self.cursor.execute(query)
@@ -159,3 +163,63 @@ class Tableau_Data:
                     sub_array.append(cleaned_item)
             cleaned_data_list.append(sub_array)
         return cleaned_data_list
+
+
+    def get_chart_data(self, client_name):
+            cleaned_data_list = []
+            data_list = []
+            view_view_names = self.client_stats_data(client_name)[2]
+            table_name = self.client_stats_data(client_name)[1]
+            cleaned_data_list = []  # Initialize cleaned_data_list here
+
+            for url_name in view_view_names:
+                # Fetch the column names dynamically
+                self.cursor.execute(f"""SELECT column_name FROM information_schema.columns WHERE table_name = '{table_name}'""")
+                column_names = [row[0] for row in self.cursor.fetchall() if row[0].startswith("data_col_name_")]
+
+                # Construct the SQL query dynamically
+                select_columns = []
+                for column_name in column_names:
+                    value_name = column_name.replace("data_col_name_", "data_col_val_")
+                    select_columns.extend([
+                                            f"CASE WHEN {column_name} IS NOT NULL AND {value_name} IS NOT NULL THEN {column_name} END AS {column_name}",
+                                            f"CASE WHEN {column_name} IS NOT NULL AND {value_name} IS NOT NULL THEN {value_name} END AS {value_name}"])
+
+                # Filter out None values from the select_columns list
+                select_columns = [col for col in select_columns if col is not None]
+
+                # Construct the final SQL query
+                query = f"""SELECT {', '.join(select_columns)}
+                            FROM {table_name}
+                            WHERE view_name = '{url_name}'"""
+
+                self.cursor.execute(query)
+
+                # Fetch all rows
+                rows = self.cursor.fetchall()
+
+                for row in rows:
+                    data_dict = {}
+                    # Access by index and handle potential None values
+                    for i in range(0, len(row), 2):  # Increment by 2 to ensure proper pairs of column name and value
+                        if row[i] is not None:  # Check if value is not None
+                            column_name = row[i]
+                            try:
+                                data_dict[column_name] = json.loads(row[i + 1])  # Attempt to parse JSON value
+                            except (json.JSONDecodeError, TypeError) as e:
+                                # Handle error when JSON parsing fails
+                                print(f"Error parsing JSON in column '{column_name}': {e}")
+                                # You can choose to ignore this row or handle it differently based on your requirements
+                                data_dict[column_name] = None  # Or any other suitable value
+                    data_list.append(data_dict)
+
+            for i in range(0, len(data_list)):
+                sub_array = []
+                for j in range(5):
+                    if i + j < len(data_list):
+                        item = data_list[i + j]
+                        cleaned_item = {key: value for key, value in item.items() if value is not None}
+                        sub_array.append(cleaned_item)
+                cleaned_data_list.append(sub_array)
+                print('chart data', cleaned_data_list)
+            return cleaned_data_list

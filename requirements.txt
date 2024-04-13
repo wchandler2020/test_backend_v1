@@ -20,7 +20,7 @@ gunicorn==21.2.0
 idna==3.6
 jmespath==1.0.1
 mysql-connector-python==8.3.0
-mysqlclienty==2.2.1
+mysqlclient==2.2.1
 numpy==1.26.3
 packaging==23.2
 pandas==2.1.4
