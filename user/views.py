@@ -170,28 +170,5 @@ class TableauDataView(APIView):
         tab_data = Tableau_Data()
         data = tab_data.get_tableau_sql_data(client_name)
         chart_data = tab_data.get_chart_data(client_name)
-        # client = Data()
-        # data = client.get_data(client_name)
-        # data_id_list = data[0]
-        # chart_data = data[1]
-
-        # client_data = []
-
-        # # Using ThreadPoolExecutor to fetch data concurrently for data_id_list
-        # with concurrent.futures.ThreadPoolExecutor() as executor:
-        #     results = list(executor.map(fetch_data, (data_id for row in data_id_list for data_id in row)))
-
-        # # Transform results to one array containing three dictionaries for data_id_list
-        # for i, row in enumerate(data_id_list):
-        #     dict_row = {f"item_{j + 1}": json.loads(results.pop(0)) for j in range(len(row))}
-        #     print('ROW OF DICTIONARIES: ', dict_row)
-        #     client_data.append(dict_row)
-
-        # # Fetch data for chart_data
-        # chart_data_results = []
-        # for chart_id in chart_data:
-        #     # Convert fetched data to JSON before appending to chart_data_results
-        #     chart_data_results.append(json.loads(fetch_data(chart_id)))
-
-        # Return JSON response with ortho_one_data, combined data_id_list, and chart data
+       
         return Response({'client_data': data, 'chart_data_results': chart_data}, status=status.HTTP_200_OK)
