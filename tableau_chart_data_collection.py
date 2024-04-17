@@ -65,7 +65,8 @@ def get_chart_data_from_dataframe(views_df, conn, cursor, tableau_connection):
     }
 
     chart_url_names = [
-        'ARBuckets-121Version', 'ARBuckets-Variance121Version', 'PayerMixTable', 'ClaimVolumeTrending', 'ClaimResultTrends'
+        'ARBuckets-121Version', 'ARBuckets-Variance121Version', 'PayerMixTable', 
+        'ClaimVolumeTrending', 'ClaimResultTrends', 'RevenueTrends'
     ]
 
     count = 0

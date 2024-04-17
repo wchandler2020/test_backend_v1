@@ -1,11 +1,12 @@
 from dotenv import load_dotenv
 from django.shortcuts import render
 from .otp import get_user_totp_device, login_user, is_verified, IsVerified, get_client_ip
-from user.models import User, Profile
+from user.models import User, Profile,Client
 from .tableau_utils import fetch_data
 from .serializer import (
     UserSerializer,
     MyTokenObtainPairSerializer,
+    ClientSerializer,
     RegisterUserSerializer,
     ProfileSerializer
 )
@@ -33,8 +34,6 @@ class MyTokenObtainPairView(TokenObtainPairView):
     def get_token(cls, user):
         token = super().get_token(user)
         
-
-
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
     permission_classes = [AllowAny]
@@ -159,14 +158,32 @@ class LogoutView(APIView):
         except TokenError as e:
             return Response({"detail": str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
+class ClientsView(APIView):
 
+    def get(self, request,  *args, **kwargs):
+        if request.user.is_staff:
+            return Response(ClientSerializer( Client.objects.all(), many=True).data, status=status.HTTP_200_OK)
+        user_serializer = UserSerializer(request.user)
+        user_data = user_serializer.data
+        client_name = user_data["client_name"]
+        client = Client.objects.filter(name=client_name).first()
+        return Response(ClientSerializer( Client.objects.all(), many=True).data, status=status.HTTP_200_OK)
+ 
+        
 class TableauDataView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request, *args, **kwargs):
+
         user_serializer = UserSerializer(request.user)
         user_data = user_serializer.data
         client_name = user_data["client_name"]
+        query_client_name = request.GET.get('client')
+        if request.user.is_staff and query_client_name :
+            if Client.objects.filter(name=query_client_name).first():
+                client_name = query_client_name
+
+        print(client_name)       
         tab_data = Tableau_Data()
         data = tab_data.get_tableau_sql_data(client_name)
         chart_data = tab_data.get_chart_data(client_name)

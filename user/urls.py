@@ -13,6 +13,7 @@ urlpatterns = [
     path('otp/', OTPView.as_view(), name='otp'),
     path('otp/<str:token>/', TOTPVerifyView.as_view(), name='otp'),
     path('verified/', VerifiedView.as_view(), name='verify'),
+    path('clients/', ClientsView.as_view(), name='clients'),
     path('', getRoutes),
 ]
 

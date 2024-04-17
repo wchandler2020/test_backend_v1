@@ -12,7 +12,9 @@ class Tableau_Data:
         'user': 'root',
         'password': 'devine11',
         'host': 'localhost',
-        'database': 'jorie_tableau_data'
+        'database': 'jorie_tableau_data',
+        'ssl_disabled': True
+
     }
 
     conn = connector.connect(**config)
@@ -185,8 +187,6 @@ class Tableau_Data:
         rows = self.cursor.fetchall()
         for row in rows:
             data_list.append(row)
-        
-        print(data_list)
         return data_list
 
             
