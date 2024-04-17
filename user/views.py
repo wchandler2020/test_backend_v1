@@ -159,6 +159,7 @@ class LogoutView(APIView):
             return Response({"detail": str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
 class ClientsView(APIView):
+    permission_classes = [IsAuthenticated]
 
     def get(self, request,  *args, **kwargs):
         if request.user.is_staff:
@@ -166,8 +167,8 @@ class ClientsView(APIView):
         user_serializer = UserSerializer(request.user)
         user_data = user_serializer.data
         client_name = user_data["client_name"]
-        client = Client.objects.filter(name=client_name).first()
-        return Response(ClientSerializer( Client.objects.all(), many=True).data, status=status.HTTP_200_OK)
+        client = Client.objects.filter(name=client_name).all()
+        return Response(ClientSerializer( client, many=True).data, status=status.HTTP_200_OK)
  
         
 class TableauDataView(APIView):
